@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Python I/O - Articles</title><link href="https://www.pythonclassmates.org/" rel="alternate"></link><link href="https://www.pythonclassmates.org/feeds/articles.atom.xml" rel="self"></link><id>https://www.pythonclassmates.org/</id><updated>2018-11-29T21:21:00+01:00</updated><subtitle>Articles et news par des Pythonistas passionés</subtitle><entry><title>GHI - GitHub Issues</title><link href="https://www.pythonclassmates.org/ghi-git-hub-issues.html" rel="alternate"></link><published>2018-11-29T21:21:00+01:00</published><updated>2018-11-29T21:21:00+01:00</updated><author><name>Freezed</name></author><id>tag:www.pythonclassmates.org,2018-11-29:/ghi-git-hub-issues.html</id><summary type="html">&lt;p&gt;&lt;code&gt;ghi&lt;/code&gt; : &lt;em&gt;GitHub Issues on the command line. Use your &lt;code&gt;$EDITOR&lt;/code&gt;, not your browser.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;CLI vs GUI, pour moi le choix est souvent vite fait. Du coup ça fait quelques temps que je gère dès que possible mes&lt;code&gt;issues&lt;/code&gt;github en CLI à l'aide de &lt;a href="https://github.com/stephencelis/ghi"&gt;ghi&lt;/a&gt;, un client dédié aux &lt;code&gt;issues …&lt;/code&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;code&gt;ghi&lt;/code&gt; : &lt;em&gt;GitHub Issues on the command line. Use your &lt;code&gt;$EDITOR&lt;/code&gt;, not your browser.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;CLI vs GUI, pour moi le choix est souvent vite fait. Du coup ça fait quelques temps que je gère dès que possible mes&lt;code&gt;issues&lt;/code&gt;github en CLI à l'aide de &lt;a href="https://github.com/stephencelis/ghi"&gt;ghi&lt;/a&gt;, un client dédié aux &lt;code&gt;issues&lt;/code&gt; GitHub éccrit en Ruby.&lt;/p&gt;
+&lt;p&gt;La vrai feature qui me manque est l'affectation d'un &lt;code&gt;project&lt;/code&gt;, dommage… Mais sinon on fait des trucs directement en console qui font &lt;em&gt;vraiment&lt;/em&gt; gagner du temps :&lt;/p&gt;
+&lt;p&gt;Liste les &lt;code&gt;issues&lt;/code&gt; &amp;amp; &lt;code&gt;pulls&lt;/code&gt; open :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/git/pythonclassmates.org $ ghi list
+&lt;span class="c1"&gt;# PythonClassmates/pythonclassmates.org open issues&lt;/span&gt;
+  &lt;span class="m"&gt;19&lt;/span&gt;: License proposal ↑
+  &lt;span class="m"&gt;18&lt;/span&gt;: License proposal ↑
+  &lt;span class="m"&gt;16&lt;/span&gt;: Travis CI rollback has not been runned
+  &lt;span class="m"&gt;15&lt;/span&gt;: Installation HowTo
+  &lt;span class="m"&gt;14&lt;/span&gt;: About page is missing
+  &lt;span class="m"&gt;13&lt;/span&gt;: Error &lt;span class="m"&gt;404&lt;/span&gt; on category/tutoriels.html
+  &lt;span class="m"&gt;12&lt;/span&gt;: Error &lt;span class="m"&gt;404&lt;/span&gt; on category/news.html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Seulement les&lt;code&gt;issues&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/git/pythonclassmates.org $ ghi list --no-pulls
+&lt;span class="c1"&gt;# PythonClassmates/pythonclassmates.org open issues&lt;/span&gt;
+  &lt;span class="m"&gt;16&lt;/span&gt;: Travis CI rollback has not been runned
+  &lt;span class="m"&gt;15&lt;/span&gt;: Installation HowTo
+  &lt;span class="m"&gt;14&lt;/span&gt;: About page is missing
+  &lt;span class="m"&gt;13&lt;/span&gt;: Error &lt;span class="m"&gt;404&lt;/span&gt; on category/tutoriels.html
+  &lt;span class="m"&gt;12&lt;/span&gt;: Error &lt;span class="m"&gt;404&lt;/span&gt; on category/news.html
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Affiche l'&lt;code&gt;issue 14&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;~/git/pythonclassmates.org $ ghi &lt;span class="m"&gt;14&lt;/span&gt;
+&lt;span class="c1"&gt;#14: About page is missing&lt;/span&gt;
+@freezed opened this issue &lt;span class="m"&gt;23&lt;/span&gt; hours ago.   open
+
+    With links to :
+    - &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; pelican
+    - &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; template
+    - &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; github
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;--web&lt;/code&gt; ouvre la page dans votre navigateur : &lt;code&gt;ghi list --web&lt;/code&gt;, &lt;code&gt;ghi 14 --web&lt;/code&gt;, etc.&lt;/p&gt;
+&lt;p&gt;Bien sûr &lt;code&gt;ghi edit …&lt;/code&gt; permet d'en éditer une (!)&lt;/p&gt;
+&lt;p&gt;Et &lt;code&gt;ghi open …&lt;/code&gt; d'en créer. Tellement pratique quand on code et que l'on tombe sur un bug, une idée, ou autre… Fini le &lt;em&gt;«Je noterai ça tout à l'heure»&lt;/em&gt; qu'on aura oublié dans 5 minutes. Là en 15s c'est plié. Et avec l'habitude on y met presque tout :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ghi open --claim --label bug --label &lt;span class="nb"&gt;test&lt;/span&gt; --message &lt;span class="s2"&gt;&amp;quot;Test de la class Adallas à améliorer&lt;/span&gt;
+
+&lt;span class="s2"&gt;Et là avec le double quote on laisse une ligne et on peut ajouter tous les&lt;/span&gt;
+&lt;span class="s2"&gt;commentaires utiles.&lt;/span&gt;
+
+&lt;span class="s2"&gt;Bon si comme moi vous êtes des maniaque le l&amp;#39;historique de votre shell, arretez&lt;/span&gt;
+&lt;span class="s2"&gt;vous après `--message` et vous pourrez éditer votre issue dans votre éditeur,&lt;/span&gt;
+&lt;span class="s2"&gt;par ce que là votre historique va dérouiller…&lt;/span&gt;
+
+&lt;span class="s2"&gt;Les check-box du GHFMD sont aussi possible :&lt;/span&gt;
+&lt;span class="s2"&gt;- [ ] foo&lt;/span&gt;
+&lt;span class="s2"&gt;- [ ] bar&lt;/span&gt;
+&lt;span class="s2"&gt;- [ ] foobar&lt;/span&gt;
+
+&lt;span class="s2"&gt;Et quand on a fini de raconter sa vie on ferme la double quote. Hoplà!&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Aller pour finir un petit one-liner en shell pour créer les&lt;code&gt;issues&lt;/code&gt;à partir d'un fichier texte (&lt;code&gt;issues.txt&lt;/code&gt;) que l'on aura rempli avec un titre d'issue par ligne. Idéal en début de projet quand on à toute la roadmap à renseigner…&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat issues.txt
+&lt;span class="nb"&gt;test&lt;/span&gt; issue &lt;span class="c1"&gt;#11&lt;/span&gt;
+&lt;span class="nb"&gt;test&lt;/span&gt; issue &lt;span class="c1"&gt;#22&lt;/span&gt;
+Foobar
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;puis&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;IFS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nb"&gt;read&lt;/span&gt; issue&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; ghi open --claim --label &lt;span class="nb"&gt;test&lt;/span&gt; --message &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;issue&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt; &amp;lt; issues.txt
+&lt;span class="c1"&gt;#32: test issue #11&lt;/span&gt;
+@freezed opened this issue &lt;span class="m"&gt;0&lt;/span&gt; seconds ago.   open
+@freezed is assigned.  &lt;span class="nb"&gt;test&lt;/span&gt;
+
+Opened on freezed/python.
+&lt;span class="c1"&gt;#33: test issue #22&lt;/span&gt;
+@freezed opened this issue &lt;span class="m"&gt;0&lt;/span&gt; seconds ago.   open
+@freezed is assigned.  &lt;span class="nb"&gt;test&lt;/span&gt;
+
+Opened on freezed/python.
+&lt;span class="c1"&gt;#34: Foobar&lt;/span&gt;
+@freezed opened this issue &lt;span class="m"&gt;0&lt;/span&gt; seconds ago.   open
+@freezed is assigned.  &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Bon code!&lt;/p&gt;</content></entry><entry><title>Les mocks avec unittest</title><link href="https://www.pythonclassmates.org/les-mocks-avec-unittest.html" rel="alternate"></link><published>2018-07-14T14:00:00+02:00</published><updated>2018-07-14T14:00:00+02:00</updated><author><name>Julien Nuellas</name></author><id>tag:www.pythonclassmates.org,2018-07-14:/les-mocks-avec-unittest.html</id><summary type="html">&lt;p&gt;Malgré les blagues et les débats que l'on peut lire concernant les tests unitaires (si vous ne les avez pas encore vu, voici quelques &lt;a href="https://twitter.com/thepracticaldev/status/687672086152753152"&gt;exemples&lt;/a&gt; qui donne le &lt;a href="https://twitter.com/MonkeyTestIt/status/958661917375172609"&gt;sourire&lt;/a&gt;), les test unitaires sont largement utilisés et s'intègrent directement dans l'approche &lt;a href="https://fr.wikipedia.org/wiki/Test_driven_development"&gt;TDD&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Les test unitaires servent donc à tester un bout …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Malgré les blagues et les débats que l'on peut lire concernant les tests unitaires (si vous ne les avez pas encore vu, voici quelques &lt;a href="https://twitter.com/thepracticaldev/status/687672086152753152"&gt;exemples&lt;/a&gt; qui donne le &lt;a href="https://twitter.com/MonkeyTestIt/status/958661917375172609"&gt;sourire&lt;/a&gt;), les test unitaires sont largement utilisés et s'intègrent directement dans l'approche &lt;a href="https://fr.wikipedia.org/wiki/Test_driven_development"&gt;TDD&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Les test unitaires servent donc à tester un bout de son code de façon isolée et vérifier que ce dernier fasse bien le travail qui lui a été demandé.
+Prenons l'exemple suivant, je dois créer un algorithme qui reçoit en entrée une liste de tuples composée d'un prénom, d'un âge et d'une taille et je dois le retourner sous forme d'un dictionnaire.&lt;/p&gt;
+&lt;p&gt;Pour tester ce code, je vais donc dans la réalisation de mon test simuler une fausse entrée (une liste de tuple) et indiquer le résultat attendu (le dictionnaire que je souhaiterais renvoyer). Je vais appliquer mon algorithme avec cette fausse entrée et comparer la sortie avec le résultat attendu. Si c'est pareil, le test est validé et si c'est pas pareil, faut retourner travailler.
+C'est logique, c'est propre, c'est net. Malheureusement que faire si l'entrée en question provient d'une source externe comme une API par exemple ? Dans ce cas-là, on va avoir un peu plus de difficulté à simuler l'entrée. Autre point, comment fait-on si la sortie de l'algorithme consiste à envoyer un mail à l'utilisateur ? Pas évident non plus de comparer les résultats attendus.&lt;/p&gt;
+&lt;p&gt;Mais ne vous inquiétez pas pour autant, car vous n'êtes pas le premier à être confronté à ce type de problématiques et des solutions ont été trouvées pour y répondre. Et c'est justement l'objectif de cet article qui va vous présenter la magie des Mocks !&lt;/p&gt;
+&lt;h2&gt;Qu'est-ce qu'un Mock ?&lt;/h2&gt;
+&lt;p&gt;Un Mock, comme son nom l'indique (et oui c'est de l'anglais) est un objet qui consiste à imiter un autre objet.
+Conceptuel n'est-ce pas ? Tout simplement, un mock c'est ce qui va vous permettre de simuler un retour API sans vraiment appeler une API ou simuler un envoi d'email sans vraiment envoyer un email. Cela permet d'imiter pas mal de choses afin de vous permettre de réaliser vos tests unitaires de façon indépendante.&lt;/p&gt;
+&lt;h2&gt;Dans la pratique, ça donne quoi ?&lt;/h2&gt;
+&lt;p&gt;Rien de mieux qu'un exemple pour appréhender un peu mieux ce concept.
+Imaginons le besoin suivant : je développe un site qui a pour objectif d'identifier des produits de substitution meilleur pour la santé par rapport à un produit donné. Pour cela, je souhaite interroger via l'&lt;a href="https://fr.openfoodfacts.org/data"&gt;API OpenFoodFacts&lt;/a&gt; les produits liés à une marque et compter le nombre de produits ayant une bonne note alimentaire.
+Voici le code de ma classe (fichier app.py) :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib.error&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;OpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;    Cette classe a pour objectif de récupérer les produits associée à une marque&lt;/span&gt;
+&lt;span class="sd"&gt;    via l&amp;#39;API d&amp;#39;OpenFoodFacts et de compter le nombre de produits ayant une bonne&lt;/span&gt;
+&lt;span class="sd"&gt;    note alimentaire.&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_get_product_from_api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;brand&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        Cette méthode a pour objectif de récupérer les 150 premiers produits liés&lt;/span&gt;
+&lt;span class="sd"&gt;        à une marque via l&amp;#39;API OpenFoodFacts&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+        &lt;span class="n"&gt;payload&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;action&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;process&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;json&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;tagtype_0&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;brands&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;tag_contains_0&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;contains&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;tag_0&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;brand&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;page_size&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;150&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s1"&gt;&amp;#39;page&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;1&amp;#39;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+
+        &lt;span class="n"&gt;parameters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlencode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;payload&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://fr.openfoodfacts.org/cgi/search.pl&amp;quot;&lt;/span&gt;
+        &lt;span class="n"&gt;parameters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parameters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;req&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Request&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;parameters&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urlopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;req&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;response_body&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;loads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;response_body&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;HTTPError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;The server couldn&lt;/span&gt;&lt;span class="se"&gt;\&amp;#39;&lt;/span&gt;&lt;span class="s1"&gt;t fulfill the request.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Error code: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;except&lt;/span&gt; &lt;span class="n"&gt;urllib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;URLError&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;We failed to reach a server.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Reason: &amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reason&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;brand&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        Cette méthode a pour objectif de dénombrer le nombre de produits ayant&lt;/span&gt;
+&lt;span class="sd"&gt;        une bonne note alimentaire&lt;/span&gt;
+&lt;span class="sd"&gt;        Il s&amp;#39;agit de la méthode à tester pour cette exercice&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+        &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_get_product_from_api&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;brand&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+        &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;product&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;products&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]:&lt;/span&gt;
+            &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;product&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="n"&gt;healthy_product&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+            &lt;span class="k"&gt;except&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                &lt;span class="k"&gt;pass&lt;/span&gt;
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;healthy_product&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Objectif de mon test&lt;/h3&gt;
+&lt;p&gt;Je souhaite tester ma méthode &lt;strong&gt;count_product_numb()&lt;/strong&gt; afin de m'assurer que cette dernière me renvoie bien le bon nombre de produits ayant une bonne note alimentaire.
+Dans notre cas, l'algorithme est censé travailler sur la donnée provenant de l'API récupérée via la méthode &lt;strong&gt;_get_product_from_api()&lt;/strong&gt;. Hors, j'y vois deux problèmes pour mon test :
+&lt;em&gt; D'un point de vue performance, si j'ai 150 tests qui font tous des appels externes, je ne suis pas prêt de visualiser les résultats de ces derniers.
+&lt;/em&gt; Je n'ai aucune idée du nombre de produits (dont des produits avec une bonne note alimentaire) que l'API va me renvoyer. Je pourrais bien évidemment faire le test à coté et les compter mais qui me dit que dans le temps, des produits ne seront pas rajouté ou supprimé ?&lt;/p&gt;
+&lt;p&gt;Du coup, pour tester ma méthode, il faudrait que je puisse simuler ce retour d'API pour avoir une donnée similaire à celle-ci.
+Et bien, c'est tout l'intérêt des mocks justement.&lt;/p&gt;
+&lt;h3&gt;Mise en place de mon test&lt;/h3&gt;
+&lt;p&gt;Pour mettre en place ce test, je vais utiliser le module unittest. L'avantage de ce module, c'est qu'il est directement intégré dans Python et qu'il dispose de la possibilité de mettre en place des mocks, et même de plusieurs façons différentes !&lt;/p&gt;
+&lt;p&gt;Je mets donc en place la structure de test suivante (fichier test_app.py) :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TestCase&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestOpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+&lt;span class="sd"&gt;        La méthode qui doit tester le fonctionnement de ma méthode&lt;/span&gt;
+&lt;span class="sd"&gt;        count_product_numb()&lt;/span&gt;
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+
+        &lt;span class="n"&gt;test_api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;test_api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;nutella&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Il y déja quelques informations avec la structure de test présentée au-dessus. En effet, que se passe-t-il déjà ?
+1. On importe dans une variable locale la classe &lt;strong&gt;OpenFoodFactsAPI&lt;/strong&gt; afin de pouvoir l'utiliser dans notre test
+2. On importe dans une variable locale la classe &lt;strong&gt;TestCase&lt;/strong&gt; du module unittest dont notre classe de test va hériter afin de pouvoir notamment utiliser les méthodes de comparaison
+3. On définit une méthode de test où :
+    * on instancie un objet de la classe OpenFoodFactsAPI
+    * on définie un résultat (ici 2)
+    * on utilise la méthode assertEqual de la classe TestCase pour comparer le résultat renvoyé par la méthode &lt;strong&gt;count_product_numb()&lt;/strong&gt; avec le résultat que l'on attend&lt;/p&gt;
+&lt;p&gt;Ne criez pas au scandale ! J'entend d'ici votre question. Pourquoi 2 comme résultat ? Comment sait-on que l'API va nous renvoyer deux produits avec une bonne note alimentaire ?
+Et bien oui, on ne le sait pas... Vous voyez un peu l'impasse ? Pourtant, cette méthode doit absolument être testée car ce qu'elle renvoie sera utilisée à l'extérieur de la classe et il est donc important que cette dernière fasse bien le travail qui lui a été demandé.&lt;/p&gt;
+&lt;p&gt;Comment faire alors ?... Il faut que je puisse tester cette méthode en lui donnant en entrée un json similaire à ce qui est renvoyé par la méthode &lt;strong&gt;_get_product_from_api()&lt;/strong&gt; comportant donc 2 produits avec une bonne note alimentaire. (J'aurais bien évidemment pu en choisir 3, 5 ou 10000). Voyons dans la suite de l'article comment faire.&lt;/p&gt;
+&lt;h3&gt;La solution sans utilisation d'un mock&lt;/h3&gt;
+&lt;p&gt;Comment ??? On parle d'un sujet sur les mocks et on propose une solution sans mock ? Oui, je l'admets, c'est un peu culotté de ma part mais je pense que ce n'est pas inutile de la décrire car ça aide à comprendre un peu la logique de fonctionnement.&lt;/p&gt;
+&lt;p&gt;Regardons déjà la solution :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TestCase&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestOpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# On instancie un object de la classe OpenFoodFactsAPI&lt;/span&gt;
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# On crée une méthode au sein de la méthode de test&lt;/span&gt;
+        &lt;span class="c1"&gt;# Il définit juste un exemple de retour de la méthode _get_product_from_api()&lt;/span&gt;
+        &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fake_api_result&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+            &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;skip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;150&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;products&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero boite de 30&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero Light sans sucre et sans goût&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero Rocher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;e&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero couscous&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero chocolat praliné&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero à la fraise&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# On assigne ensuite ce retour à la méthode ciblée&lt;/span&gt;
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_get_product_from_api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;fake_api_result&lt;/span&gt;
+
+        &lt;span class="c1"&gt;# On fait le test de comparaison&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ferrero&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Et voilà le travail ! On utilise ici le caractère dynamique de Python ainsi que ces règle de portées de variables pour "forcer" le retour de la méthode &lt;strong&gt;_get_product_from_api&lt;/strong&gt;. De cette façon, la méthode &lt;strong&gt;count_product_numb()&lt;/strong&gt; va utiliser le dictionnaire défini et retourné par la méthode &lt;strong&gt;fake_api_result()&lt;/strong&gt; pour compter le nombre de produit ayant une bonne note.&lt;/p&gt;
+&lt;p&gt;Alors c'est super et ça fonctionne mais imaginons maintenant que l'on ait à mocker plusieurs éléments, cela risque de rendre le code difficilement lisible et il doit y avoir une méthode plus sympa que de créer des méthodes imbriquées.
+Et bien oui, c'est le cas. Voyons maintenant deux autres façons de faire en utilisant l'object &lt;strong&gt;Mock&lt;/strong&gt; du module unittest, puis de son décorateur &lt;strong&gt;patch&lt;/strong&gt;.&lt;/p&gt;
+&lt;h3&gt;Utilisation de la classe Mock&lt;/h3&gt;
+&lt;p&gt;Unittest propose une classe Mock permettant de "mocker" facilement une classe, un objet ou une méthode. Cela permet d'indiquer au processus de test que cet objet est une imitation et on va pouvoir agir dessus par l'intermédiaire des méthodes de la classe Mock (comme par exemple lui retourner une valeur !).&lt;/p&gt;
+&lt;p&gt;Voyons ce que cela donne :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TestCase&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unittest.mock&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Mock&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestOpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+        &lt;span class="n"&gt;api_response&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;skip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;150&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;products&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero boite de 30&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero Light sans sucre et sans goût&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero Rocher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;e&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero couscous&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero chocolat praliné&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero à la fraise&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+            &lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_get_product_from_api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mock&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_get_product_from_api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;api_response&lt;/span&gt;
+
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ferrero&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Il y a plusieurs étapes derrière ce code :
+1. On importe tout d'abord la classe Mock du module unittest
+2. On définit la valeur de retour de l'API représentée ici par la variable api_response
+3. On mock la méthode get_product_from_api de l'objet healthy_product
+4. On lui associe la valeur de retour via la méthode return.value
+5. On utilise la méthode assertEqual() de la classe TestCase afin de comparer le retour de la méthode que l'on teste avec le résultat attendu&lt;/p&gt;
+&lt;p&gt;A noter qu'il est possible de fusionner le point 3 et 4 en une seule fois en utilisant l'argument return_value lorsque la méthode est mockée :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_get_product_from_api&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Mock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;api_response&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Utilisation du décorateur patch&lt;/h3&gt;
+&lt;p&gt;Une des autres façons de mettre en place un mock avec unittest est d'utiliser son décorateur patch.
+Ce décorateur permet - comme son nom l'indique - de 'patcher' un objet uniquement au sein de la fonction à laquelle elle est appelée. En effet, cela gère automatiquement le 'dé-patching' même si des exceptions sont levées.&lt;/p&gt;
+&lt;p&gt;Voyons un peu ce que cela donne :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;app&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unittest&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TestCase&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unittest.mock&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;patch&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestOpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@patch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;app.OpenFoodFactsAPI._get_product_from_api&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mock_get_product_from_api&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+        &lt;span class="n"&gt;mock_get_product_from_api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;skip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;150&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;products&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero boite de 30&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero Light sans sucre et sans goût&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero Rocher&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;e&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero couscous&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero chocolat praliné&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;{&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;product_name_fr&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Ferrero à la fraise&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                    &lt;span class="s2"&gt;&amp;quot;nutrition_grade_fr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                &lt;span class="p"&gt;},&lt;/span&gt;
+                &lt;span class="p"&gt;]&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+
+        &lt;span class="n"&gt;healthy_product&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;OpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;assertEqual&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;healthy_product&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;ferrero&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Décrivons également les différentes étapes :
+1. On importe le décorateur patch du module unittest
+2. On met en place le décorateur qui prend en argument l'objet à mocker
+3. Le décorateur injecte l'objet mocker au sein de la fonction comme un argument de la méthode. Le nom de l'argument est libre de choix. Ici, il s'agit de l'argument &lt;strong&gt;mock_get_product_from_api&lt;/strong&gt;.
+4. On utilise la méthode return_value pour associer la valeur de retour souhaitée au mock.
+5. On instancie un objet via la classe OpenFoodFactsAPI()
+6. On utilise la méthode assertEqual de la classe TestCase pour comparer la valeur renvoyée par la méthode que l'on teste avec le résultat attendu&lt;/p&gt;
+&lt;p&gt;Petite remarque supplémentaire, attention à ne patcher uniquement que la méthode que l'on souhaite mocker et non la classe entière.
+En effet, en faisant comme ceci :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;TestOpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TestCase&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@patch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;app.OpenFoodFactsAPI&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;test_count_product_numb&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mock_OpenFoodFactsAPI&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="n"&gt;mock_OpenFoodFactsAPI&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;_get_product_from_api&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;return_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;count&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;skip&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;page_size&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;150&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Le mock ne fonctionnera pas. En effet, unittest va créer un grand objet mock sur l'ensemble de la classe et ne dissociera pas la partie de la classe qui doit être imitée et celle qui ne le doit pas.
+Du coup, lors du lancement du test, l'appel à l'API sera réalisé et la méthode &lt;strong&gt;count_product_numb&lt;/strong&gt; sera appliquée sur la donnée renvoyée par l'API et non celle que l'on a configurée. &lt;/p&gt;
+&lt;p&gt;Attention donc à bien mocker le périmètre que l'on souhaite imiter.&lt;/p&gt;
+&lt;h2&gt;Quelle solution choisir au final ?&lt;/h2&gt;
+&lt;p&gt;Et bien, de mon côté, j'ai une préférence pour l'utilisation du décorateur &lt;strong&gt;patch&lt;/strong&gt; car je trouve que le code est plus lisible et cela m'assure surtout que le mock ne sera actif que durant le test de ma méthode car comme indiqué plus haut, il gère automatiquement la destruction du mock à la fin du test.
+En revanche, l'utilisation de la classe Mock n'est pas dénué d'intérêt lorsque plusieurs tests (donc plusieurs méthodes) doivent faire appel au même objet à mocker. J'aurais plus tendance à utiliser cette solution dans ce type de cas en définissant mon objet mockée dans une méthode &lt;em&gt;SetUp&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mais au final, il n'appartient qu'à vous de choisir. Les goûts et les couleurs, ça ne se discute pas !&lt;/p&gt;
+&lt;h2&gt;Pour faire quelques tests&lt;/h2&gt;
+&lt;p&gt;Si vous souhaitez faire quelques tests sur l'exemple de l'article, vous pouvez retrouver le code source à cette adresse :
+&lt;a href="https://github.com/JN-Lab/Test-Mock-Unittest"&gt;https://github.com/JN-Lab/Test-Mock-Unittest&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Il y a différents fichiers de tests avec différentes méthodes appliquées dont une qui ne fonctionnent pas et qui faitréférence au danger expliqué plus haut.&lt;/p&gt;
+&lt;p&gt;J'espère en tout cas que cet article vous aura permis d'y voir un peu plus clair sur la façon de mettre en place des mocks avec le module unittest.&lt;/p&gt;
+&lt;p&gt;Bon codage à tous !&lt;/p&gt;</content><category term="python"></category><category term="unittest"></category></entry></feed>
